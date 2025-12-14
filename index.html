@@ -276,12 +276,12 @@
             <div class="question">How many times per day?</div>
             
             <div class="frequency-options">
-                <button class="frequency-btn" onclick="selectFrequency(1)">1x</button>
-                <button class="frequency-btn" onclick="selectFrequency(2)">2x</button>
-                <button class="frequency-btn" onclick="selectFrequency(3)">3x</button>
-                <button class="frequency-btn" onclick="selectFrequency(4)">4x</button>
-                <button class="frequency-btn" onclick="selectFrequency(5)">5x</button>
-                <button class="frequency-btn" onclick="selectFrequency(6)">6x</button>
+                <button class="frequency-btn" onclick="selectFrequency(1, this)">1x</button>
+                <button class="frequency-btn" onclick="selectFrequency(2, this)">2x</button>
+                <button class="frequency-btn" onclick="selectFrequency(3, this)">3x</button>
+                <button class="frequency-btn" onclick="selectFrequency(4, this)">4x</button>
+                <button class="frequency-btn" onclick="selectFrequency(5, this)">5x</button>
+                <button class="frequency-btn" onclick="selectFrequency(6, this)">6x</button>
             </div>
             
             <div id="timeInputsContainer" class="time-inputs hidden"></div>
@@ -319,6 +319,7 @@
 
     <!-- Audio for alarm sound -->
     <audio id="alarmSound" preload="auto">
+        <!-- Using a data URI for a simple beep sound -->
         <source src="data:audio/wav;base64,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" type="audio/wav">
     </audio>
 
@@ -328,13 +329,24 @@
         let activeReminders = [];
 
         // Select frequency
-        function selectFrequency(freq) {
+        function selectFrequency(freq, element) {
             selectedFrequency = freq;
             
             // Update button styles
             const buttons = document.querySelectorAll('.frequency-btn');
             buttons.forEach(btn => btn.classList.remove('selected'));
-            event.target.classList.add('selected');
+            
+            // Find and select the clicked button
+            if (element) {
+                element.classList.add('selected');
+            } else {
+                // Fallback: select by frequency number
+                buttons.forEach((btn, index) => {
+                    if (index + 1 === freq) {
+                        btn.classList.add('selected');
+                    }
+                });
+            }
             
             // Show time inputs
             generateTimeInputs(freq);
@@ -521,4 +533,74 @@
             const currentFreq = selectedFrequency;
             const currentTimes = [...reminderTimes];
             
-            // Show setup
+            // Show setup screen
+            document.getElementById('activeScreen').classList.add('hidden');
+            document.getElementById('setupScreen').classList.remove('hidden');
+            
+            // Pre-select the current frequency
+            if (currentFreq > 0) {
+                const buttons = document.querySelectorAll('.frequency-btn');
+                buttons.forEach((btn, index) => {
+                    if (index + 1 === currentFreq) {
+                        btn.classList.add('selected');
+                    } else {
+                        btn.classList.remove('selected');
+                    }
+                });
+                
+                // Generate time inputs with current times
+                generateTimeInputs(currentFreq);
+                
+                // Fill in current times
+                currentTimes.forEach((time, index) => {
+                    const input = document.getElementById(`time${index}`);
+                    if (input) {
+                        input.value = time;
+                    }
+                });
+                
+                document.getElementById('startBtn').classList.remove('hidden');
+            }
+        }
+
+        // Save to storage
+        function saveToStorage() {
+            const data = {
+                frequency: selectedFrequency,
+                times: reminderTimes
+            };
+            localStorage.setItem('medicineSchedule', JSON.stringify(data));
+        }
+
+        // Load from storage
+        function loadFromStorage() {
+            const saved = localStorage.getItem('medicineSchedule');
+            if (saved) {
+                const data = JSON.parse(saved);
+                selectedFrequency = data.frequency;
+                reminderTimes = data.times;
+                
+                // Check notification permission
+                if (Notification.permission === 'granted') {
+                    updateNotificationBadge(true);
+                }
+                
+                scheduleAllReminders();
+                showActiveScreen();
+            }
+        }
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            loadFromStorage();
+            
+            // Re-schedule when page becomes visible
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden && reminderTimes.length > 0) {
+                    scheduleAllReminders();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
