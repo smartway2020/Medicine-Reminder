@@ -311,6 +311,10 @@
                 <div id="scheduleList"></div>
             </div>
             
+            <button class="btn btn-primary" onclick="testNotification()" style="background: #f59e0b; margin-bottom: 10px;">
+                🔔 Test Notification & Sound Now
+            </button>
+            
             <button class="btn btn-secondary" onclick="changeSchedule()">
                 Change Schedule
             </button>
@@ -523,6 +527,18 @@
             }
         }
 
+        // Test notification function
+        function testNotification() {
+            if (Notification.permission !== 'granted') {
+                alert('Please enable notifications first!\n\nGo to iPhone Settings → Safari → Notifications');
+                requestNotificationPermission();
+                return;
+            }
+            
+            triggerReminder();
+            alert('Test notification sent!\n\nYou should hear a sound and see a notification.');
+        }
+
         // Change schedule
         function changeSchedule() {
             // Clear reminders
@@ -602,7 +618,5 @@
             });
         });
     </script>
-    <script src="./script.js"></script>
 </body>
 </html>
-
